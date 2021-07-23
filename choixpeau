@@ -1,0 +1,61 @@
+Client.on("message", message => {
+
+    var maisons = ['Gryfondor', 'Serpentard', 'Serdaigle', 'Poufsoufle'];
+
+    if(message.content == "c/choixpeau")
+    {
+        if (message.member.roles.cache.has("868170478035030086") || message.member.roles.cache.has("868170501896413244") || message.member.roles.cache.has("868170520972103710") || message.member.roles.cache.has("868170547492692018"))
+        {
+            console.log("Error : already got a role");
+            message.reply("Bien tenter mais tu à déjà une maison!");
+        }
+        else
+        {
+            switch (maisons[Math.floor(Math.random() * 4)])
+            {
+                case "Gryfondor":
+                    var role = message.member.guild.roles.cache.find(role => role.id === "868170478035030086" );
+                    message.member.roles.add(role).then(() => {
+                        message.reply("**Bienvenue** chez **<@&868170478035030086>**");
+                        console.log("Sucess role added");
+                    }).catch(() => {
+                        console.log("Error the role was not assigned");
+                    })
+                    break;
+
+                case "Serpentard":
+                    var role = message.member.guild.roles.cache.find(role => role.id === "868170501896413244" );
+                    message.member.roles.add(role).then(() => {
+                        message.reply("**Bienvenue** chez **<@&868170501896413244>**");
+                        console.log("Sucess role added");
+                   }).catch(() => {
+                        console.log("Error the role was not assigned");
+                    })
+                    break;
+
+                case "Poufsoufle":
+                    var role = message.member.guild.roles.cache.find(role => role.id === "868170520972103710" );
+                    message.member.roles.add(role).then(() => {
+                        message.reply("**Bienvenue** chez **<@&868170520972103710>**");
+                        console.log("Sucess role added");
+                    }).catch(() => {
+                        console.log("Error the role was not assigned");
+                    })
+                    break;
+
+                case "Serdaigle":
+                    var role = message.member.guild.roles.cache.find(role => role.id === "868170547492692018" );
+                    message.member.roles.add(role).then(() => {
+                        message.reply("**Bienvenue** chez **<@&868170547492692018>**");
+                        console.log("Sucess role added");
+                    }).catch(() => {
+                        console.log("Error the role was not assigned");
+                    })
+                    break;
+
+                    default:
+                        break;
+            }
+        }
+    }
+});
